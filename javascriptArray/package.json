@@ -1,0 +1,18 @@
+{
+  "name": "javascriptarray",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "bootstrap-react": "^0.5.0-alpha.14",
+    "create-react-app": "^4.0.3",
+    "reactstrap": "^8.9.0",
+    "test": "^0.6.0"
+  }
+}
