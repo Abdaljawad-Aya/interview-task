@@ -38,7 +38,6 @@ export const EditUser = (props) => {
         <Input
           type="text"
           onChange={onChange}
-          value={selectedUser.name}
           name="name"
           placeholder="Enter user"
           required

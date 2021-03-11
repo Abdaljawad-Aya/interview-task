@@ -1,33 +1,25 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useContext, useState } from 'react'
 import { GlobalContext } from '../context/GlobalState'
 import { Link, useHistory } from 'react-router-dom'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
+import { v4 as uuid } from 'uuid'
 
 export const EditUser = (props) => {
-  const { editUser, users } = useContext(GlobalContext)
   const [selectedUser, setSelectedUser] = useState({
     id: '',
     name: '',
   })
+  const [users, editUser] = useContext(GlobalContext)
   const history = useHistory()
   const currentUserId = props.match.params.id
 
-  useEffect(() => {
-    const userId = currentUserId
-    const selectedUser = users.find((user) => user.id === userId)
-    setSelectedUser(selectedUser)
-  }, [currentUserId, users])
-
-  const onChange = (e) => {
-    setSelectedUser({ ...selectedUser, [e.target.name]: e.target.value })
-  }
-
-  const onSubmit = (e) => {
-    e.preventDefault()
-    editUser(selectedUser)
+  const onSubmit = () => {
     history.push('/')
   }
 
+  const onChange = (e) => {
+    // setSelectedUser(e.target.value)
+  }
   return (
     <Form
       onSubmit={onSubmit}
@@ -35,14 +27,7 @@ export const EditUser = (props) => {
     >
       <FormGroup>
         <Label>Name</Label>
-        <Input
-          type="text"
-          onChange={onChange}
-          value={selectedUser.name}
-          name="name"
-          placeholder="Enter user"
-          required
-        ></Input>
+        <Input onChange={onChange} type="text" placeholder="Enter Name"></Input>
       </FormGroup>
       <Button type="submit">Edit Name</Button>
       <Link to="/" className="btn btn-danger ml-2">

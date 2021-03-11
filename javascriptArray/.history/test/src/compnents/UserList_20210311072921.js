@@ -13,7 +13,7 @@ export const UserList = () => {
         {users.length > 0 ? (
           <>
             {users.map((user) => (
-              <ListGroupItem className="d-flex" key={user.id}>
+              <ListGroupItem className="d-flex">
                 <strong>{user.name}</strong>
                 <div className="ml-auto">
                   <Link

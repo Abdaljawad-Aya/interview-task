@@ -24,10 +24,7 @@ export const AddUser = () => {
   }
 
   return (
-    <Form
-      onSubmit={onSubmit}
-      style={{ maxWidth: '30rem', margin: '4rem auto' }}
-    >
+    <Form onSubmit={onSubmit}>
       <FormGroup>
         <Label>Name</Label>
         <Input

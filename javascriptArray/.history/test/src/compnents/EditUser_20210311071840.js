@@ -14,7 +14,7 @@ export const EditUser = (props) => {
 
   useEffect(() => {
     const userId = currentUserId
-    const selectedUser = users.find((user) => user.id === userId)
+    const selectedUser = users.find((user) => user.id === Number(userId))
     setSelectedUser(selectedUser)
   }, [currentUserId, users])
 
@@ -39,7 +39,7 @@ export const EditUser = (props) => {
           type="text"
           onChange={onChange}
           value={selectedUser.name}
-          name="name"
+          // name="name"
           placeholder="Enter user"
           required
         ></Input>

@@ -29,16 +29,12 @@ export const EditUser = (props) => {
   }
 
   return (
-    <Form
-      onSubmit={onSubmit}
-      style={{ maxWidth: '30rem', margin: '4rem auto' }}
-    >
+    <Form onSubmit={onSubmit}>
       <FormGroup>
         <Label>Name</Label>
         <Input
           type="text"
           onChange={onChange}
-          value={selectedUser.name}
           name="name"
           placeholder="Enter user"
           required

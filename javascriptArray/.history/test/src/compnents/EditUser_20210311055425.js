@@ -1,20 +1,20 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { GlobalContext } from '../context/GlobalState'
-import { v4 as uuid } from 'uuid'
 import { Link, useHistory } from 'react-router-dom'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
+import { v4 as uuid } from 'uuid'
 
-export const AddUser = () => {
+export const EditUser = () => {
   const [name, setName] = useState('')
-  const { addUser } = useContext(GlobalContext)
+  const [addUser] = useContext(GlobalContext)
   const history = useHistory()
 
-  const onSubmit = (e) => {
-    e.preventDefault()
+  const onSubmit = () => {
     const newUser = {
       id: uuid(),
       name,
     }
+
     addUser(newUser)
     history.push('/')
   }
@@ -22,24 +22,13 @@ export const AddUser = () => {
   const onChange = (e) => {
     setName(e.target.value)
   }
-
   return (
-    <Form
-      onSubmit={onSubmit}
-      style={{ maxWidth: '30rem', margin: '4rem auto' }}
-    >
+    <Form style={{ maxWidth: '30rem', margin: '4rem auto' }}>
       <FormGroup>
         <Label>Name</Label>
-        <Input
-          type="text"
-          value={name}
-          onChange={onChange}
-          name="name"
-          placeholder="Enter user"
-          required
-        ></Input>
+        <Input type="text" placeholder="Enter Name"></Input>
       </FormGroup>
-      <Button type="submit">Submit</Button>
+      <Button type="submit">Edit Name</Button>
       <Link to="/" className="btn btn-danger ml-2">
         Cancel
       </Link>
